@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu FF Antiband</title>
+  <link rel="icon" href="https://files.catbox.moe/jtevok.png" type="image/png">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: transparent;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    #video-toggle {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 2;
+      font-size: 14px;
+    }
+
+    .menu-container {
+      width: 40vw;
+      max-width: 400px;
+      aspect-ratio: 16 / 9;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 20px;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255,255,255,0.3);
+      z-index: 1;
+      margin: auto;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .menu-title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .menu-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 10px 0;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    .option {
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .option input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid white;
+      border-radius: 4px;
+      background-color: transparent;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .option input[type="checkbox"]:checked::after {
+      content: "✓";
+      color: #00aaff;
+      font-size: 14px;
+      position: absolute;
+      top: -2px;
+      left: 3px;
+    }
+
+    .menu-footer {
+      text-align: center;
+      font-size: 14px;
+      color: #ccc;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 500px) {
+      .menu-container {
+        width: 90vw;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video nền -->
+  <video autoplay muted loop playsinline preload="auto" id="bg-video">
+    <source src="https://files.catbox.moe/7i23ij.mp4" type="video/mp4">
+    Trình duyệt của bạn không hỗ trợ video.
+  </video>
+
+  <!-- Nhạc nền -->
+  <audio id="bg-audio" preload="auto">
+    <source src="https://files.catbox.moe/xwrq0z.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ âm thanh.
+  </audio>
+
+  <!-- Nút điều khiển video & nhạc -->
+  <button id="video-toggle">⏸ Dừng</button>
+
+  <!-- Menu -->
+  <div class="menu-container">
+    <div class="menu-title">Menu FF Antiband</div>
+
+    <div class="menu-options">
+      <label class="option"><input type="checkbox"> Aimhead 💀</label>
+      <label class="option"><input type="checkbox"> Norecoil 🎯</label>
+      <label class="option"><input type="checkbox"> Ping</label>
+      <label class="option"><input type="checkbox"> Sensitivity 📱</label>
+    </div>
+
+    <div class="menu-footer">Menu By Bùi Hoàng Hải</div>
+  </div>
+
+  <!-- Script xử lý video + nhạc -->
+  <script>
+    const video = document.getElementById('bg-video');
+    const audio = document.getElementById('bg-audio');
+    const toggleButton = document.getElementById('video-toggle');
+
+    toggleButton.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        audio.play();
+        toggleButton.textContent = '⏸ Dừng';
+      } else {
+        video.pause();
+        audio.pause();
+        toggleButton.textContent = '▶️ Phát';
+      }
+    });
+  </script>
+
+</body>
+</html>
