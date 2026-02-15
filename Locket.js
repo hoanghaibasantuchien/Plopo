@@ -15,14 +15,14 @@ var subscription_data = {
   "expires_date": "2099-12-31T23:59:59Z",
   "grace_period_expires_date": null,
   "unsubscribe_detected_at": null,
-  "original_purchase_date": "2026-01-15T00:00:00Z",
-  "purchase_date": "2023-01-15T00:00:00Z",
+  "original_purchase_date": "2009-08-08T00:00:00Z",
+  "purchase_date": "2009-08-08T00:00:00Z",
   "store": "app_store"
 };
 
 var entitlement_data = {
   "grace_period_expires_date": null,
-  "purchase_date": "2026-01-15T00:00:00Z",
+  "purchase_date": "2009-08-08T00:00:00Z",
   "product_identifier": "locket_gold_yearly",
   "expires_date": "2099-12-31T23:59:59Z"
 };
